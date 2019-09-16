@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activitys.activityFormularioVacinas">
+
+    <EditText android:id="@+id/TxtBoxNomeDaVacina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="Nome da Vacina"
+        android:inputType="textCapWords"
+        android:importantForAutofill="no"
+        tools:targetApi="o"/>
+
+    <Spinner android:id="@+id/SpinnerTipoDeVacina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"/>
+
+    <Button android:id="@+id/BotaoAbrirCalendarioDataDeVacinacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="data de Vacinação"
+        android:textSize="20sp"
+        android:layout_margin="8dp" />
+
+    <Button android:id="@+id/BotaoAbrirCalendarioDataDeValidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="data da Validade"
+        android:textSize="20sp"
+        android:layout_margin="8dp"/>
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.activityListaVacinas">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@color/design_default_color_primary"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ListaVacinasInfoEspecie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Cachorro"
+        android:textColor="#F7F5F5"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/ListaVacinasInfoPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="5Kg"
+        android:textColor="#F7F5F5"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/ListaVacinasInfoCastrado"
+        app:layout_constraintTop_toBottomOf="@+id/ListaVacinasInfoEspecie" />
+
+    <TextView
+        android:id="@+id/ListaVacinasInfoCastrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Castrado"
+        android:textColor="#F7F5F5"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/ListaVacinasInfoSexo"
+        app:layout_constraintTop_toBottomOf="@+id/ListaVacinasInfoEspecie" />
+
+    <TextView
+        android:id="@+id/ListaVacinasInfoSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Macho"
+        android:textColor="#F7F5F5"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/ListaVacinasInfoEspecie"
+        app:layout_constraintTop_toBottomOf="@+id/ListaVacinasInfoEspecie" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:text="Nascimento"
+        android:textColor="#F7F5F5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ListaVacinasInfoDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="02/01/2009"
+        android:textColor="#F7F5F5"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <ListView
+        android:id="@+id/ListaVacinasListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FabAdicionaNovaVacina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#007CFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/fab_add_icon"
+        app:backgroundTint="#007CFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>
