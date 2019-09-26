@@ -21,12 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"/>
 
-    <Button android:id="@+id/BotaoAbrirCalendarioDataDeVacinacao"
+    <Button
+        android:id="@+id/BotaoAbrirCalendarioDataDeVacinacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="data de Vacinação"
-        android:textSize="20sp"
-        android:layout_margin="8dp" />
+        android:layout_margin="8dp"
+        android:hint="data da Vacinação"
+        android:textSize="20sp" />
 
     <Button android:id="@+id/BotaoAbrirCalendarioDataDeValidade"
         android:layout_width="match_parent"

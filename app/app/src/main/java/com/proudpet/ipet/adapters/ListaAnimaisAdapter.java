@@ -48,6 +48,10 @@ public class ListaAnimaisAdapter extends BaseAdapter {
     private void vincula(View viewCriada, Animal animalDevolvido) {
         TextView nome = viewCriada.findViewById(R.id.itemAnimalNome);
         nome.setText(animalDevolvido.getNome());
+
+        TextView genero = viewCriada.findViewById(R.id.itemAnimalGenero);
+        genero.setText(animalDevolvido.getSexo());
+
         ImageView especie = viewCriada.findViewById(R.id.IconeTipoAnimal);
 
         if(animalDevolvido.getEspecie().equals("Gato")){
