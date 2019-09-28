@@ -24,9 +24,7 @@ public class Animal implements Serializable {
     private boolean Castrado;
 
     public Animal(){
-
     }
-
 
     public void adicionaVacina(List<Vacina> vacinas){
         for (Vacina a: vacinas) {

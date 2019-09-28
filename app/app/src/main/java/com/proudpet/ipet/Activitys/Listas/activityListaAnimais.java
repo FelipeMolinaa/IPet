@@ -1,4 +1,4 @@
-package com.proudpet.ipet.Activitys;
+package com.proudpet.ipet.Activitys.Listas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import com.proudpet.ipet.Activitys.Forms.activityFormularioAnimais;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
-import com.proudpet.ipet.classes.ListaAnimaisView;
+import com.proudpet.ipet.Views.ListaAnimaisView;
 
 public class activityListaAnimais extends AppCompatActivity {
 

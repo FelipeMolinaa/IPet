@@ -1,4 +1,4 @@
-package com.proudpet.ipet.Activitys;
+package com.proudpet.ipet.Activitys.Forms;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -17,9 +17,12 @@ import android.widget.Switch;
 import android.widget.Toast;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
-import com.proudpet.ipet.classes.DatePickerFragment;
+import com.proudpet.ipet.adapters.PegaDataAdapter;
+import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.AnimaisDatabase;
+import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.AnimaisDAO;
+import com.proudpet.ipet.database.dao.VacinasDAO;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -37,15 +40,18 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
     private Spinner campoSexo;
     private Spinner campoEspecie;
     private Switch campoCastrado;
-    private AnimaisDAO dao;
+    private AnimaisDAO daoAnimais;
+    private VacinasDAO daoVacinas;
     private Animal animal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_animais);
-        AnimaisDatabase database = AnimaisDatabase.getInstance(this);
-        dao = database.getRoomAnimalDAO();
+        AnimaisDatabase databaseAnimais = AnimaisDatabase.getInstance(this);
+        daoAnimais = databaseAnimais.getRoomAnimalDAO();
+        VacinasDatabase databaseVacinas = VacinasDatabase.getInstance(this);
+        daoVacinas = databaseVacinas.getRoomVacinaDAO();
         inicializacaoDosCampos();
         carregaAnimal();
     }
@@ -68,10 +74,10 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
     private void finalizarFormulario() {
         preencherAnimal();
         if (animal.temIdValido()){
-            dao.edita(animal);
+            daoAnimais.edita(animal);
         }else{
             Toast.makeText(this,animal.getNome() + " foi adicionado com sucesso", Toast.LENGTH_SHORT).show();
-            dao.salva(animal);
+            daoAnimais.salva(animal);
         }
         finish();
     }
@@ -128,7 +134,7 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
         campoDataNascimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment pegaData = new DatePickerFragment();
+                DialogFragment pegaData = new PegaDataAdapter();
                 pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
             }
         });

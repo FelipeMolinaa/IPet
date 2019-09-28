@@ -50,10 +50,7 @@ public class ListaVacinasAdapter extends BaseAdapter {
         nome.setText(vacinaDevolvida.getNome());
 
         TextView diasRestantes = viewCriada.findViewById(R.id.LabelDiasRestantes);
-        diasRestantes.setText("Faltam "+vacinaDevolvida.getValidade() + " dias");
-
-        TextView diaValidade = viewCriada.findViewById(R.id.LabelDataValidade);
-        diaValidade.setText(vacinaDevolvida.getDataValidade());
+        diasRestantes.setText(vacinaDevolvida.getValidadeString());
 
         ImageView tempoImg = viewCriada.findViewById(R.id.ImagemItemVacina);
         int validade = Integer.parseInt(vacinaDevolvida.getValidade());

@@ -1,65 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.activityFormularioAnimais">
+    android:layout_width="match_parent">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        tools:context=".Activitys.Forms.activityFormularioAnimais">
 
-        <EditText
-            android:id="@+id/FormularioAnimalTxtBoxNomeAnimal"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:hint="Nome do Animal"
-            android:importantForAutofill="no"
-            android:inputType="textCapWords"
-            tools:targetApi="o" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/FormularioAnimalTxtBoxDataNascimentoAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:hint="Data de Nascimento"
-            android:importantForAutofill="no"
-            android:inputType="date"
-            tools:targetApi="o" />
+            <EditText
+                android:id="@+id/FormularioAnimalTxtBoxNomeAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="Nome do Animal"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords"
+                tools:targetApi="o" />
 
-        <EditText
-            android:id="@+id/FormularioAnimalTxtBoxPesoAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:hint="Peso do Animal"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            tools:targetApi="o" />
+            <Button
+                android:id="@+id/FormularioAnimalTxtBoxDataNascimentoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="Data de Nascimento"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                tools:targetApi="o" />
 
-        <Spinner
-            android:id="@+id/FormularioAnimalSpinnerEspecieAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            <EditText
+                android:id="@+id/FormularioAnimalTxtBoxPesoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="Peso do Animal"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
 
-        <Spinner
-            android:id="@+id/FormularioAnimalSpinnerSexoAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            <Spinner
+                android:id="@+id/FormularioAnimalSpinnerEspecieAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
 
-        <Switch
-            android:id="@+id/FormularioAnimalSwitchCastrado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Castrado"
-            android:layout_margin="8dp"/>
+            <Spinner
+                android:id="@+id/FormularioAnimalSpinnerSexoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
 
-    </LinearLayout>
+            <Switch
+                android:id="@+id/FormularioAnimalSwitchCastrado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Castrado"
+                android:layout_margin="8dp"/>
 
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

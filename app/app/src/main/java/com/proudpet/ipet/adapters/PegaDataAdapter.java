@@ -1,4 +1,4 @@
-package com.proudpet.ipet.classes;
+package com.proudpet.ipet.adapters;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -9,7 +9,7 @@ import android.support.v4.app.DialogFragment;
 
 import java.util.Calendar;
 
-public class DatePickerFragment extends DialogFragment {
+public class PegaDataAdapter extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

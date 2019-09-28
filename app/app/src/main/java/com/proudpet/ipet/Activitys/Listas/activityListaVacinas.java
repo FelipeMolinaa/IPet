@@ -1,4 +1,4 @@
-package com.proudpet.ipet.Activitys;
+package com.proudpet.ipet.Activitys.Listas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.proudpet.ipet.Activitys.Forms.activityFormularioVacinas;
+import com.proudpet.ipet.Activitys.Infos.activityInformacaoVacina;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
-import com.proudpet.ipet.classes.ListaVacinasView;
+import com.proudpet.ipet.Views.ListaVacinasView;
 import com.proudpet.ipet.classes.Vacina;
 
 public class activityListaVacinas extends AppCompatActivity {
@@ -87,11 +90,10 @@ public class activityListaVacinas extends AppCompatActivity {
     private void configuraListenerDeClickPorItem(ListView listaDeVacinas) {
         listaDeVacinas.setOnItemClickListener((adapterView, view, position, id) ->{
             Vacina vacinaEscolhida = (Vacina) adapterView.getItemAtPosition(position);
-            Intent vaiPraListaDeVacinas = new Intent(activityListaVacinas.this, activityFormularioVacinas.class);
+            Intent vaiPraListaDeVacinas = new Intent(activityListaVacinas.this, activityInformacaoVacina.class);
             vaiPraListaDeVacinas.putExtra("Vacina", vacinaEscolhida);
             startActivity(vaiPraListaDeVacinas);
         });
-
     }
 
     private void configuraFAB() {

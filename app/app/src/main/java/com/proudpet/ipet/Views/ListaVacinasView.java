@@ -1,4 +1,4 @@
-package com.proudpet.ipet.classes;
+package com.proudpet.ipet.Views;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.proudpet.ipet.adapters.ListaVacinasAdapter;
+import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.VacinasDAO;
 

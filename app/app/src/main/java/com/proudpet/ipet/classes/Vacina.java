@@ -14,22 +14,23 @@ public class Vacina implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
-
-    @Ignore
-    public Vacina(int idAnimal, String nome, String tipo) {
-        this.idAnimal = idAnimal;
-        this.nome = nome;
-        this.tipo = tipo;
-    }
-
     private int idAnimal = 0;
     private String nome;
     private String tipo;
     private String dataVacina;
     private String dataValidade;
     private String validade;
+    private boolean obrigatorio;
 
     public Vacina(){
+    }
+
+    @Ignore
+    public Vacina(int idAnimal, String nome) {
+        this.idAnimal = idAnimal;
+        this.nome = nome;
+        this.tipo = "vacina";
+        this.obrigatorio = true;
     }
 
     public int getId() {
@@ -118,5 +119,23 @@ public class Vacina implements Serializable {
 
     public void renovarVacina() {
 
+    }
+
+    public String getValidadeString() {
+        int vacinaInt = Integer.parseInt(validade);
+        if (vacinaInt >= 1) {
+            return "Expira em " + vacinaInt + " dias";
+        }
+        else {
+            return "Expirou a " + vacinaInt * (-1) + " dias";
+        }
+    }
+
+    public boolean isObrigatorio() {
+        return obrigatorio;
+    }
+
+    public void setObrigatorio(boolean obrigatorio) {
+        this.obrigatorio = obrigatorio;
     }
 }

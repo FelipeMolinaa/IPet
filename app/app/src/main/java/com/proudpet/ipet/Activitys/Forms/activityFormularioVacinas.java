@@ -1,4 +1,4 @@
-package com.proudpet.ipet.Activitys;
+package com.proudpet.ipet.Activitys.Forms;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -17,13 +17,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.proudpet.ipet.R;
-import com.proudpet.ipet.classes.DatePickerFragment;
+import com.proudpet.ipet.adapters.PegaDataAdapter;
 import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.VacinasDAO;
 import java.util.Calendar;
 
 public class activityFormularioVacinas extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+
 
     private String[] ArrayTipoVacina = new String[]{"Vacina","Vermifogo"};
 
@@ -97,7 +98,6 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
             vacina.setIdAnimal(idAnimal);
         }
 
-        Log.i("IdAnimal", "" + idAnimal);
     }
 
     private void carregaVacina() {
@@ -139,7 +139,7 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
         campoDataVacina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment pegaData = new DatePickerFragment();
+                DialogFragment pegaData = new PegaDataAdapter();
                 pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
                 TagCalendario = "calendarioDataVacina";
             }
@@ -148,7 +148,7 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
         campoDataValidade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment pegaData = new DatePickerFragment();
+                DialogFragment pegaData = new PegaDataAdapter();
                 pegaData.show(getSupportFragmentManager(), "calendarioDataValidade");
                 TagCalendario = "calendarioDataValidade";
             }
