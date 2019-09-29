@@ -21,6 +21,8 @@ public interface VacinasDAO {
     @Query("SELECT * FROM vacina WHERE idAnimal = :id")
     List<Vacina> todos(int id);
 
+    @Query("SELECT * FROM vacina WHERE id = :id")
+    Vacina pegaVacina(int id);
 
     @Update
     void edita(Vacina vacina);
