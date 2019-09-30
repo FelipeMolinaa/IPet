@@ -32,6 +32,7 @@ public class activityInformacaoVacina extends AppCompatActivity {
     TextView nomeVacina;
     TextView mensagemValidade;
     TextView dataValidade;
+    TextView dataVacinacao;
     ImageView imagemVacinaStatus;
     Switch interruptorObrigatorio;
     Button botaoEditar;
@@ -47,7 +48,6 @@ public class activityInformacaoVacina extends AppCompatActivity {
 
         PegaDados();
         PegaViews();
-        PreencheView();
         ConfiguraBotoes();
     }
 
@@ -91,6 +91,7 @@ public class activityInformacaoVacina extends AppCompatActivity {
         mensagemValidade.setText(vacina.getValidadeString());
         dataValidade.setText(vacina.getDataValidade());
         interruptorObrigatorio.setChecked(vacina.isObrigatorio());
+        dataVacinacao.setText(vacina.getDataVacina());
         configuraImagemStatus();
     }
 
@@ -116,12 +117,12 @@ public class activityInformacaoVacina extends AppCompatActivity {
         botaoEditar = findViewById(R.id.BotaoEditar);
         botaoRemover = findViewById(R.id.BotaoRemover);
         botaoRenovar = findViewById(R.id.BotaoRenovar);
+        dataVacinacao = findViewById(R.id.TXTDataVacinacao);
     }
 
     private void PegaDados() {
         Intent dados = getIntent();
         vacina = (Vacina) dados.getSerializableExtra("Vacina");
-
     }
 
     private void ConfiguraBD(){

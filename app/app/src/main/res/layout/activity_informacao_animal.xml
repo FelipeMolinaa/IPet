@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.Infos.activityInformacaoAnimal">
+
+    <ImageView
+        android:id="@+id/IMGAnimal"
+        android:layout_width="96dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/img_cachorro_emoji_foreground" />
+
+    <TextView
+        android:id="@+id/TXTNomeAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/IMGAnimal"
+        app:layout_constraintStart_toStartOf="@+id/IMGAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/IMGAnimal"
+        tools:text="Nina" />
+
+    <View
+        android:id="@+id/Divisor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXTNomeAnimal" />
+
+    <TextView
+        android:id="@+id/LabelNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Nascimento:"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Divisor" />
+
+    <TextView
+        android:id="@+id/TXTDataDeNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/LabelNascimento"
+        app:layout_constraintStart_toEndOf="@+id/LabelNascimento"
+        app:layout_constraintTop_toTopOf="@+id/LabelNascimento"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="20/12/2019" />
+
+    <View
+        android:id="@+id/Divisor2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LabelNascimento" />
+
+    <TextView
+        android:id="@+id/LabelGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Genero:"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Divisor2" />
+
+    <TextView
+        android:id="@+id/TXTGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/LabelGenero"
+        app:layout_constraintStart_toEndOf="@+id/LabelGenero"
+        app:layout_constraintTop_toTopOf="@+id/LabelGenero"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="Femea" />
+
+    <TextView
+        android:id="@+id/LabelCastrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="Castrado:"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="@+id/TXTGenero"
+        app:layout_constraintEnd_toStartOf="@+id/SwitchCastrado"
+        app:layout_constraintTop_toTopOf="@+id/TXTGenero"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Switch
+        android:id="@+id/SwitchCastrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/LabelCastrado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/LabelCastrado"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/divisor3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LabelGenero" />
+
+    <TextView
+        android:id="@+id/LabelPesoAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Peso do animal:"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divisor3" />
+
+    <TextView
+        android:id="@+id/TXTPesoAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/LabelPesoAnimal"
+        app:layout_constraintStart_toEndOf="@+id/LabelPesoAnimal"
+        app:layout_constraintTop_toTopOf="@+id/LabelPesoAnimal"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="20Kg" />
+
+    <View
+        android:id="@+id/Divisor4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LabelPesoAnimal" />
+
+    <Button
+        android:id="@+id/BotaoVerVacinas"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#6FD152"
+        android:drawableStart="@mipmap/icone_menu_vacina_foreground"
+        android:paddingStart="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:text="Vacinas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Divisor4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/BotaoEditar"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:text="Editar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BotaoVerVacinas"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/BotaoRemover"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="Remover"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/BotaoEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/BotaoEditar"
+        app:layout_constraintTop_toTopOf="@+id/BotaoEditar" />
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

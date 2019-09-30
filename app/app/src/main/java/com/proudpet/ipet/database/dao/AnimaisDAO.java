@@ -24,4 +24,7 @@ public interface AnimaisDAO {
 
     @Insert
     void salva(Animal animal);
+
+    @Query("SELECT * FROM animal where id = :id")
+    Animal pegaAnimal(int id);
 }

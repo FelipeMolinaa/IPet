@@ -108,4 +108,8 @@ public class Animal implements Serializable {
         }
         return "";
     }
+
+    public String getPesoString() {
+        return getPeso() + "Kg";
+    }
 }

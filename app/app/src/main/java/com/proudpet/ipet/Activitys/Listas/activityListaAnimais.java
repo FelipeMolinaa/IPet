@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.proudpet.ipet.Activitys.Forms.activityFormularioAnimais;
+import com.proudpet.ipet.Activitys.Infos.activityInformacaoAnimal;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
 import com.proudpet.ipet.Views.ListaAnimaisView;
@@ -57,9 +58,9 @@ public class activityListaAnimais extends AppCompatActivity {
     private void configuraListenerDeCliquePorItem(ListView listaAnimais) {
         listaAnimais.setOnItemClickListener((adapterView, view, posicao, id) ->{
             Animal animalEscolhido = (Animal) adapterView.getItemAtPosition(posicao);
-            Intent vaiPraListaDeVacinas = new Intent(activityListaAnimais.this, activityListaVacinas.class);
-            vaiPraListaDeVacinas.putExtra("Animal", animalEscolhido);
-            startActivity(vaiPraListaDeVacinas);
+            Intent vaiPraInformacoes = new Intent(activityListaAnimais.this, activityInformacaoAnimal.class);
+            vaiPraInformacoes.putExtra("Animal", animalEscolhido);
+            startActivity(vaiPraInformacoes);
         });
     }
 
