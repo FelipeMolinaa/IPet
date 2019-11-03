@@ -14,7 +14,6 @@ import java.util.List;
 @Dao
 public interface VacinasDAO {
 
-    
     @Delete
     void remove(Vacina vacina);
 

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.proudpet.ipet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_aplicativo_ipet_round"
@@ -11,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activitys.Infos.activityInformacaoAnimal"></activity>
+        <activity android:name=".Activitys.Infos.activityInformacaoNoticia"></activity>
+        <activity android:name=".Activitys.Listas.activityListaNoticias" />
+        <activity android:name=".Activitys.Infos.activityInformacaoAnimal" />
         <activity android:name=".Activitys.activityMenuPrincipal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +27,7 @@
         <activity android:name=".Activitys.Forms.activityFormularioVacinas" />
         <activity android:name=".Activitys.Listas.activityListaVacinas" />
         <activity android:name=".Activitys.Forms.activityFormularioAnimais" />
-        <activity android:name=".Activitys.Listas.activityListaAnimais"></activity>
+        <activity android:name=".Activitys.Listas.activityListaAnimais" />
     </application>
 
 </manifest>

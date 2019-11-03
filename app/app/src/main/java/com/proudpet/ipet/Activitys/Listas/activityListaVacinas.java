@@ -32,25 +32,6 @@ public class activityListaVacinas extends AppCompatActivity {
         configuraLista();
     }
 
-    private void ConfiguraInfoAnimal() {
-        setTitle("vacinas de: " + animal.getNome());
-
-        TextView TXTEspecie = findViewById(R.id.ListaVacinasInfoEspecie);
-        TXTEspecie.setText(animal.getEspecie());
-
-        TextView TXTSexo = findViewById(R.id.ListaVacinasInfoSexo);
-        TXTSexo.setText(animal.getSexo());
-
-        TextView TXTCastrado = findViewById(R.id.ListaVacinasInfoCastrado);
-        TXTCastrado.setText(animal.getStringCastrado());
-
-        TextView TXTPeso = findViewById(R.id.ListaVacinasInfoPeso);
-        TXTPeso.setText(animal.getStringPeso());
-
-        TextView TXTDataNascimento = findViewById(R.id.ListaVacinasInfoDataNascimento);
-        TXTDataNascimento.setText(animal.getDataNascimento());
-    }
-
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -104,7 +85,6 @@ public class activityListaVacinas extends AppCompatActivity {
     private void iniciaActivity() {
         Intent dados = getIntent();
         animal = (Animal) dados.getSerializableExtra("Animal");
-        ConfiguraInfoAnimal();
     }
 
     private void abreFormNovaVacina(){

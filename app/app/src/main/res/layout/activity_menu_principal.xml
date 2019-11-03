@@ -72,18 +72,51 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
+        <ImageButton
+            android:id="@+id/menuBotaoAbrirSabicao"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:adjustViewBounds="false"
+            android:backgroundTint="#F0F0F0"
+            android:padding="55sp"
+            android:paddingTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/imagem_sabicao_foreground"
+            android:text=""
+            android:textAlignment="viewStart"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:text="Aplicativo Desenvolvido pela ProudTech em 2019"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuBotaoAbrirNoticias"
+            app:layout_constraintTop_toBottomOf="@+id/menuBotaoAbrirSabicao"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Patrocinador"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menuBotaoAbrirNoticias" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
