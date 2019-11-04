@@ -50,14 +50,14 @@ public class ListaAnimaisAdapter extends BaseAdapter {
         nome.setText(animalDevolvido.getNome());
 
         TextView genero = viewCriada.findViewById(R.id.itemAnimalGenero);
-        genero.setText(animalDevolvido.getSexo());
+        genero.setText(animalDevolvido.getStringSexo());
 
         ImageView especie = viewCriada.findViewById(R.id.IconeTipoAnimal);
 
-        if(animalDevolvido.getEspecie().equals("Gato")){
+        if(animalDevolvido.getEspecie() == 2){
             especie.setImageResource(R.mipmap.img_gato_emoji_foreground);
         }
-        if(animalDevolvido.getEspecie().equals("Cachorro")){
+        if(animalDevolvido.getEspecie() == 1){
             especie.setImageResource(R.mipmap.img_cachorro_emoji_foreground);
         }
     }

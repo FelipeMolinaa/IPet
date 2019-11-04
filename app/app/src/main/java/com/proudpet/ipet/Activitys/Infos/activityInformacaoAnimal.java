@@ -117,7 +117,7 @@ public class activityInformacaoAnimal extends AppCompatActivity {
     private void PreencheView() {
         nomeAnimal.setText(animal.getNome());
         dataNascimento.setText(animal.getDataNascimento());
-        generoAnimal.setText(animal.getSexo());
+        generoAnimal.setText(animal.getStringSexo());
         pesoAnimal.setText(animal.getPesoString());
         ConfiguraImagemAnimal();
         isCastrado.setChecked(animal.isCastrado());
@@ -125,10 +125,10 @@ public class activityInformacaoAnimal extends AppCompatActivity {
     }
 
     private void ConfiguraImagemAnimal() {
-        if(animal.getEspecie().equals("Gato")){
+        if(animal.getEspecie() == 2){
             imagemAnimal.setImageResource(R.mipmap.img_gato_emoji_foreground);
         }
-        if(animal.getEspecie().equals("Cachorro")){
+        if(animal.getEspecie() == 1){
             imagemAnimal.setImageResource(R.mipmap.img_cachorro_emoji_foreground);
         }
     }

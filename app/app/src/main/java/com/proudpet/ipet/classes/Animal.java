@@ -19,8 +19,8 @@ public class Animal implements Serializable {
     private String nome;
     private String dataNascimento;
     private String peso;
-    private String especie;
-    private String Sexo;
+    private int especie;
+    private int Sexo;
     private boolean Castrado;
 
     public Animal(){
@@ -46,7 +46,7 @@ public class Animal implements Serializable {
         this.nome = nome;
     }
 
-    public void setEspecie(String especie) {
+    public void setEspecie(int especie) {
         this.especie = especie;
     }
 
@@ -62,7 +62,7 @@ public class Animal implements Serializable {
         return nome;
     }
 
-    public String getEspecie() {
+    public int getEspecie() {
         return especie;
     }
 
@@ -86,11 +86,11 @@ public class Animal implements Serializable {
         this.peso = peso;
     }
 
-    public String getSexo() {
+    public int getSexo() {
         return Sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(int sexo) {
         Sexo = sexo;
     }
 
@@ -111,5 +111,13 @@ public class Animal implements Serializable {
 
     public String getPesoString() {
         return getPeso() + "Kg";
+    }
+
+    public String getStringSexo() {
+        if (getSexo() == 1){
+            return "Femea";
+        }else{
+            return "Macho";
+        }
     }
 }

@@ -10,7 +10,7 @@ import com.proudpet.ipet.classes.Animal;
 import com.proudpet.ipet.database.converter.ConversorCalendar;
 import com.proudpet.ipet.database.dao.AnimaisDAO;
 
-@Database(entities = {Animal.class}, version = 2, exportSchema = false)
+@Database(entities = {Animal.class}, version = 3, exportSchema = false)
 @TypeConverters({ConversorCalendar.class})
 public abstract class AnimaisDatabase extends RoomDatabase {
 
