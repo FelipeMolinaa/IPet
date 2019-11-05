@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activitys.Infos.activityInformacaoNoticia"></activity>
+        <activity android:name=".Activitys.Listas.activityListaTodasVacinas"></activity>
+        <activity android:name=".Activitys.Infos.activityInformacaoNoticia" />
         <activity android:name=".Activitys.Listas.activityListaNoticias" />
         <activity android:name=".Activitys.Infos.activityInformacaoAnimal" />
         <activity android:name=".Activitys.activityMenuPrincipal">
@@ -25,7 +26,7 @@
         </activity>
         <activity android:name=".Activitys.Infos.activityInformacaoVacina" />
         <activity android:name=".Activitys.Forms.activityFormularioVacinas" />
-        <activity android:name=".Activitys.Listas.activityListaVacinas" />
+        <activity android:name=".Activitys.Listas.activityListaVacinasAnimal" />
         <activity android:name=".Activitys.Forms.activityFormularioAnimais" />
         <activity android:name=".Activitys.Listas.activityListaAnimais" />
     </application>

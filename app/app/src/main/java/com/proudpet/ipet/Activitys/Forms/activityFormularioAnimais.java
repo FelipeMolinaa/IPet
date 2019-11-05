@@ -78,7 +78,7 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
         if (campoNome.length() == 0){
             Toast.makeText(this, "Seu animal Precisa de um nome", Toast.LENGTH_SHORT).show();
         }
-        else if (campoDataNascimento.length() > 15){
+        else if (campoNome.length() > 15){
             Toast.makeText(this, "Seu animal tem um nome muito grande", Toast.LENGTH_SHORT).show();
         }
         else if (campoDataNascimento.length() == 0){

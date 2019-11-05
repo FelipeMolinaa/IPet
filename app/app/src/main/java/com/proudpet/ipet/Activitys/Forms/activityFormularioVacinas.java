@@ -3,6 +3,7 @@ package com.proudpet.ipet.Activitys.Forms;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,15 +11,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.adapters.PegaDataAdapter;
 import com.proudpet.ipet.classes.Vacina;
+import com.proudpet.ipet.classes.VacinaPronta;
 import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.VacinasDAO;
 import java.util.Calendar;
@@ -27,14 +31,14 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
 
 
     private String[] ArrayTipoVacina = new String[]{"Vacina","Vermifogo"};
-
+    private static boolean gambiarra = true;
     private static final String TITULO_APPBAR_NOVO_ALUNO = "Nova Vacina";
     private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita dados de: ";
-    private EditText campoNomeVacina;
-    private Button campoDataVacina;
-    private Spinner campoTipoVacina;
-    private Button campoDataValidade;
+    private TextView campoNomeVacina;
+    private EditText campoDataVacina;
+    private TextView campoDataValidade;
 
+    private VacinaPronta vacinaPronta;
     private Vacina vacina;
     private VacinasDAO dao;
     Calendar calendar = Calendar.getInstance();
@@ -42,20 +46,16 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
     private Context context;
     private int idAnimal;
 
-    public activityFormularioVacinas() {
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_vacinas);
         VacinasDatabase database = VacinasDatabase.getInstance(this);
         dao = database.getRoomVacinaDAO();
-
         inicializacaoDosCampos();
         carregaVacina();
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,7 +67,11 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.IconeSalvarFormularioAddAnimais){
-            finalizarFormulario();
+            if(campoDataVacina.length() == 0){
+                Toast.makeText(this, "Coloque a Data em que seu animal foi vacinado", Toast.LENGTH_SHORT).show();
+            }else{
+                finalizarFormulario();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -77,7 +81,7 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
         if (vacina.temIdValido()){
             dao.edita(vacina);
         }else{
-            Toast.makeText(this, vacina.getNome() + " foi adicionado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, vacina.getNome() + "foi adicionado com sucesso", Toast.LENGTH_SHORT).show();
             dao.salva(vacina);
         }
         finish();
@@ -86,18 +90,19 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
     private void preencherVacina(){
         String nome = campoNomeVacina.getText().toString();
         String dataVacinacao = campoDataVacina.getText().toString();
-        String tipoVacina = campoTipoVacina.getSelectedItem().toString();
         String dataValidade = campoDataValidade.getText().toString();
 
+        Toast.makeText(this, nome, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, dataVacinacao, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, dataValidade, Toast.LENGTH_SHORT).show();
         vacina.setNome(nome);
         vacina.setDataVacina(dataVacinacao);
-        vacina.setTipo(tipoVacina);
         vacina.setDataValidade(dataValidade);
+        vacina.setObrigatorio(true);
 
         if(idAnimal != 0){
             vacina.setIdAnimal(idAnimal);
         }
-
     }
 
     private void carregaVacina() {
@@ -106,12 +111,22 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
             vacina = (Vacina) dados.getSerializableExtra("Vacina");
             setTitle(TITULO_APPBAR_EDITA_ALUNO + vacina.getNome());
             preencherCampos();
+        }else if(dados.hasExtra("VacinaEscolhida")){
+            vacinaPronta = (VacinaPronta) dados.getSerializableExtra("VacinaEscolhida");
+            idAnimal = (int) dados.getSerializableExtra("idAnimal");
+            preencherCamposVacinaPronta();
+            vacina = new Vacina();
         }
         else{
             idAnimal = dados.getIntExtra("Animal", 0);
             setTitle(TITULO_APPBAR_NOVO_ALUNO);
             vacina = new Vacina();
         }
+    }
+
+    private void preencherCamposVacinaPronta() {
+        campoNomeVacina.setText(vacinaPronta.getNome());
+        campoDataValidade.setText(vacinaPronta.getStringValidade());
     }
 
     private void preencherCampos() {
@@ -121,36 +136,23 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
     }
 
     private void inicializacaoDosCampos() {
-        campoNomeVacina = findViewById(R.id.TxtBoxNomeDaVacina);
+        campoNomeVacina = findViewById(R.id.TextNomeDaVacina);
         campoDataVacina = findViewById(R.id.BotaoAbrirCalendarioDataDeVacinacao);
-        campoTipoVacina = findViewById(R.id.SpinnerTipoDeVacina);
-        campoDataValidade = findViewById(R.id.BotaoAbrirCalendarioDataDeValidade);
+        campoDataValidade = findViewById(R.id.TextDataValidadeVacina);
         configuraCalendarios();
-        configuraSpinnerSexo();
-    }
-
-    private void configuraSpinnerSexo() {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, ArrayTipoVacina);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        campoTipoVacina.setAdapter(adapter);
     }
 
     private void configuraCalendarios() {
-        campoDataVacina.setOnClickListener(new View.OnClickListener() {
+        campoDataVacina.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
-                DialogFragment pegaData = new PegaDataAdapter();
-                pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
-                TagCalendario = "calendarioDataVacina";
-            }
-        });
+            public void onFocusChange(View view, boolean b) {
+                if(gambiarra){
+                    DialogFragment pegaData = new PegaDataAdapter();
+                    pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
+                    TagCalendario = "calendarioDataVacina";
+                    gambiarra = false;
+                }
 
-        campoDataValidade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment pegaData = new PegaDataAdapter();
-                pegaData.show(getSupportFragmentManager(), "calendarioDataValidade");
-                TagCalendario = "calendarioDataValidade";
             }
         });
     }
@@ -161,13 +163,13 @@ public class activityFormularioVacinas extends AppCompatActivity implements Date
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
         String textoData = (dayOfMonth+"/"+(month + 1)+"/"+year);
-
+        String textoValidade = (dayOfMonth+"/"+(month + 1)+"/"+(year + 1) );
         if(TagCalendario == "calendarioDataVacina"){
             campoDataVacina.setText(textoData);
-        }else if(TagCalendario == "calendarioDataValidade"){
-            campoDataValidade.setText(textoData);
+            campoDataValidade.setText(textoValidade);
         }
+        campoDataValidade.requestFocus();
+        gambiarra = true;
     }
 }

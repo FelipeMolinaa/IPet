@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.proudpet.ipet.R;
-import com.proudpet.ipet.classes.Animal;
 import com.proudpet.ipet.classes.Noticia;
 
 import java.util.ArrayList;

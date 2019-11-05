@@ -8,7 +8,6 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.proudpet.ipet.Activitys.Forms.activityFormularioVacinas;
 import com.proudpet.ipet.Activitys.Infos.activityInformacaoVacina;
@@ -17,7 +16,7 @@ import com.proudpet.ipet.classes.Animal;
 import com.proudpet.ipet.Views.ListaVacinasView;
 import com.proudpet.ipet.classes.Vacina;
 
-public class activityListaVacinas extends AppCompatActivity {
+public class activityListaVacinasAnimal extends AppCompatActivity {
 
     Animal animal;
     private ListaVacinasView listaVacinasView;
@@ -25,7 +24,7 @@ public class activityListaVacinas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_vacinas);
+        setContentView(R.layout.activity_lista_vacinas_animal);
         listaVacinasView = new ListaVacinasView(this);
         iniciaActivity();
         configuraFAB();
@@ -55,7 +54,7 @@ public class activityListaVacinas extends AppCompatActivity {
     }
 
     private void abreFormEditaAnimal(Vacina vacinaSelecionada) {
-        Intent vaiProFormEdita = new Intent(activityListaVacinas.this, activityFormularioVacinas.class);
+        Intent vaiProFormEdita = new Intent(activityListaVacinasAnimal.this, activityFormularioVacinas.class);
         vaiProFormEdita.putExtra("Vacina", vacinaSelecionada);
         startActivity(vaiProFormEdita);
     }
@@ -67,11 +66,10 @@ public class activityListaVacinas extends AppCompatActivity {
         registerForContextMenu(listaDeVacinas);
     }
 
-    //adicionar uma caixa de dialogo perguntando se quer renovar
     private void configuraListenerDeClickPorItem(ListView listaDeVacinas) {
         listaDeVacinas.setOnItemClickListener((adapterView, view, position, id) ->{
             Vacina vacinaEscolhida = (Vacina) adapterView.getItemAtPosition(position);
-            Intent vaiPraListaDeVacinas = new Intent(activityListaVacinas.this, activityInformacaoVacina.class);
+            Intent vaiPraListaDeVacinas = new Intent(activityListaVacinasAnimal.this, activityInformacaoVacina.class);
             vaiPraListaDeVacinas.putExtra("Vacina", vacinaEscolhida);
             startActivity(vaiPraListaDeVacinas);
         });
@@ -88,7 +86,7 @@ public class activityListaVacinas extends AppCompatActivity {
     }
 
     private void abreFormNovaVacina(){
-        Intent vaiPraListaDeVacinas = new Intent(activityListaVacinas.this, activityFormularioVacinas.class);
+        Intent vaiPraListaDeVacinas = new Intent(activityListaVacinasAnimal.this, activityListaTodasVacinas.class);
         vaiPraListaDeVacinas.putExtra("Animal", animal.getId());
         startActivity(vaiPraListaDeVacinas);
     }

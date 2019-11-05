@@ -49,9 +49,10 @@ public class ListaVacinasView {
         adapter.remove(vacina);
     }
 
-    private void renova(Vacina vacina) {
-        vacina.renovarVacina();
+    public void renova(Vacina vacina) {
+        vacina.renovaVacina();
         dao.edita(vacina);
+        adapter.atualiza(dao.todos(vacina.getIdAnimal()));
     }
 
     public Vacina confirmaEdicao(MenuItem item) {

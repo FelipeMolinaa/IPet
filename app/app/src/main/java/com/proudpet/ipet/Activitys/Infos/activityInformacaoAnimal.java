@@ -6,21 +6,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.proudpet.ipet.Activitys.Forms.activityFormularioAnimais;
-import com.proudpet.ipet.Activitys.Forms.activityFormularioVacinas;
-import com.proudpet.ipet.Activitys.Listas.activityListaAnimais;
-import com.proudpet.ipet.Activitys.Listas.activityListaVacinas;
+import com.proudpet.ipet.Activitys.Listas.activityListaVacinasAnimal;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
 import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.AnimaisDatabase;
-import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.AnimaisDAO;
 
 public class activityInformacaoAnimal extends AppCompatActivity {
@@ -55,7 +52,7 @@ public class activityInformacaoAnimal extends AppCompatActivity {
         botaoVacinas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent vaiPraInformacoes = new Intent(activityInformacaoAnimal.this, activityListaVacinas.class);
+                Intent vaiPraInformacoes = new Intent(activityInformacaoAnimal.this, activityListaVacinasAnimal.class);
                 vaiPraInformacoes.putExtra("Animal", animal);
                 startActivity(vaiPraInformacoes);
             }
@@ -88,6 +85,10 @@ public class activityInformacaoAnimal extends AppCompatActivity {
                 alertaExclusao.show();
             }
         });
+
+
+
+
     }
 
     private void PegaViews() {

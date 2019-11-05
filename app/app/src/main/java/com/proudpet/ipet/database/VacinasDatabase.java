@@ -10,7 +10,7 @@ import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.converter.ConversorCalendar;
 import com.proudpet.ipet.database.dao.VacinasDAO;
 
-@Database(entities = {Vacina.class}, version = 3, exportSchema = false)
+@Database(entities = {Vacina.class}, version = 5, exportSchema = false)
 @TypeConverters({ConversorCalendar.class})
 public abstract class VacinasDatabase extends RoomDatabase{
     public static final String NOME_BANCO_DE_DADOS = "Vacinas.db";

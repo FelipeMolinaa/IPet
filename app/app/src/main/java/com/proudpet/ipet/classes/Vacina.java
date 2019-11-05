@@ -3,10 +3,13 @@ package com.proudpet.ipet.classes;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.util.Log;
 
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -26,10 +29,10 @@ public class Vacina implements Serializable {
     }
 
     @Ignore
-    public Vacina(int idAnimal, String nome) {
+    public Vacina(int idAnimal, String nome, String tipo) {
         this.idAnimal = idAnimal;
         this.nome = nome;
-        this.tipo = "vacina";
+        this.tipo = tipo;
         this.obrigatorio = true;
     }
 
@@ -104,7 +107,6 @@ public class Vacina implements Serializable {
 
         Date dateInicial = null;
         Date dateFinal = null;
-
         try
         {
             dateInicial = df.parse(df.format(data));
@@ -115,10 +117,6 @@ public class Vacina implements Serializable {
         long dataTotal = (dateFinal.getTime() - dateInicial.getTime()) + 3600000;
         long dias = (dataTotal / 86400000L);
         return String.valueOf(dias);
-    }
-
-    public void renovarVacina() {
-
     }
 
     public String getValidadeString() {
@@ -137,5 +135,33 @@ public class Vacina implements Serializable {
 
     public void setObrigatorio(boolean obrigatorio) {
         this.obrigatorio = obrigatorio;
+    }
+
+    public void renovaVacina(){
+        Log.i("data1", getDataValidade() + " - " + getDataVacina());
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            cal.setTime(formatter.parse(String.valueOf(date)));
+        }catch (Exception e){
+
+        }
+        int ano = cal.get(Calendar.YEAR);
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+        int mes = cal.get(Calendar.MONTH);
+
+        String dataTotal = (dia + "/" + (mes + 1) + "/" + (ano + 1));
+        Log.i("data1", dataTotal);
+        setDataValidade(dataTotal);
+
+        String data = null;
+        try
+        {
+            data = formatter.format(date);
+        }
+        catch (Exception evt ) {}
+        setDataVacina(data);
+        Log.i("data1", getDataValidade() + " - " + getDataVacina());
     }
 }

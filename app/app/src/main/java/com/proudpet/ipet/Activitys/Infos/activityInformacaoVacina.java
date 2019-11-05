@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.proudpet.ipet.Activitys.Forms.activityFormularioVacinas;
-import com.proudpet.ipet.Activitys.Listas.activityListaVacinas;
 import com.proudpet.ipet.R;
+import com.proudpet.ipet.Views.ListaVacinasView;
 import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.VacinasDatabase;
 import com.proudpet.ipet.database.dao.VacinasDAO;
@@ -28,6 +27,7 @@ public class activityInformacaoVacina extends AppCompatActivity {
     Vacina vacinaBD;
     VacinasDAO dao;
     Context context;
+    ListaVacinasView listaVacinasView;
 
     TextView nomeVacina;
     TextView mensagemValidade;
@@ -45,7 +45,6 @@ public class activityInformacaoVacina extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacao_vacina);
-
         PegaDados();
         PegaViews();
         ConfiguraBotoes();
@@ -64,24 +63,39 @@ public class activityInformacaoVacina extends AppCompatActivity {
         botaoRemover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(vacina.isObrigatorio()){
-                    Toast.makeText(context, "Esta Vacina é obrigatoria, portanto não pode ser removida", Toast.LENGTH_SHORT).show();
-                }else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(activityInformacaoVacina.this);
-                    builder.setTitle("Remover");
-                    builder.setMessage("tem certeza que deseja remover esta vacina?");
-                    builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            dao.remove(vacina);
-                            finish();
-                        }
-                    });
-                    builder.setNegativeButton("Não", null);
 
-                    alertaExclusao = builder.create();
-                    alertaExclusao.show();
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(activityInformacaoVacina.this);
+                builder.setTitle("Remover");
+                builder.setMessage("tem certeza que deseja remover esta vacina?");
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        dao.remove(vacina);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Não", null);
 
+                alertaExclusao = builder.create();
+                alertaExclusao.show();
+            }
+        });
+
+        botaoRenovar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activityInformacaoVacina.this);
+                builder.setTitle("Renovar");
+                builder.setMessage("tem certeza que deseja renovar esta vacina?");
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        vacina.renovaVacina();
+                        dao.edita(vacina);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Não", null);
+                alertaExclusao = builder.create();
+                alertaExclusao.show();
             }
         });
     }

@@ -3,13 +3,8 @@ package com.proudpet.ipet.Views;
 import android.content.Context;
 import android.widget.ListView;
 
-import com.proudpet.ipet.Activitys.Listas.activityListaNoticias;
-import com.proudpet.ipet.adapters.ListaAnimaisAdapter;
 import com.proudpet.ipet.adapters.ListaNoticiasAdapter;
 import com.proudpet.ipet.classes.Noticia;
-import com.proudpet.ipet.database.AnimaisDatabase;
-
-
 
 public class ListaNoticiasView {
     private final ListaNoticiasAdapter adapter;
