@@ -2,11 +2,7 @@ package com.proudpet.ipet.classes;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.content.Context;
 import android.support.annotation.NonNull;
-
-import com.proudpet.ipet.database.VacinasDatabase;
-import com.proudpet.ipet.database.dao.VacinasDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -115,7 +111,7 @@ public class Animal implements Serializable {
 
     public String getStringSexo() {
         if (getSexo() == 1){
-            return "Femea";
+            return "fêmea";
         }else{
             return "Macho";
         }

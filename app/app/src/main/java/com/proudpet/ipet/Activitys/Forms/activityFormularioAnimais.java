@@ -27,12 +27,12 @@ import java.util.Calendar;
 
 public class activityFormularioAnimais extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    private String[] ArrayEspecie = new String[]{"Escolha a especie","Cachorro", "Gato"};
-    private String[] ArraySexo = new String[]{"Escolha o genero","Femea", "Macho"};
+    private String[] ArrayEspecie = new String[]{"Escolha a espécie","Cachorro", "Gato"};
+    private String[] ArraySexo = new String[]{"Escolha o gênero","Fêmea", "Macho"};
 
     private static boolean Gambiarra = true;
-    private static final String TITULO_APPBAR_NOVO_ALUNO = "Novo Animal";
-    private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita dados de: ";
+    private static final String tituloNovoAnimal = "Novo Animal";
+    private static final String tituloEditaAnimal = "Editar dados de: ";
     private EditText campoNome;
     private EditText campoDataNascimento;
     private EditText campoPeso;
@@ -72,29 +72,27 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
     }
 
     private void analizaCampos() {
-        String campoEspecieString = campoEspecie.getSelectedItem().toString();
-        String campoGeneroString = campoSexo.getSelectedItem().toString();
 
         if (campoNome.length() == 0){
-            Toast.makeText(this, "Seu animal Precisa de um nome", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seu animal PRECISA de um NOME", Toast.LENGTH_LONG).show();
         }
         else if (campoNome.length() > 15){
-            Toast.makeText(this, "Seu animal tem um nome muito grande", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seu animal tem um NOME MUITO GRANDE", Toast.LENGTH_LONG).show();
         }
         else if (campoDataNascimento.length() == 0){
-            Toast.makeText(this, "Seu animal Precisa de uma data de nascimento", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seu animal PRECISA de uma DATA DE NASCIMENTO", Toast.LENGTH_LONG).show();
         }
         else if (campoPeso.length() == 0){
-            Toast.makeText(this, "Seu animal Precisa de um peso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seu animal PRECISA de um PESO", Toast.LENGTH_LONG).show();
         }
         else if (campoPeso.length() > 199){
-            Toast.makeText(this, "Seu animal Precisa de um peso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seu animal tem um PESO INVALIDO", Toast.LENGTH_LONG).show();
         }
-        else if (campoEspecieString.equals("Escolha a especie")){
-            Toast.makeText(this, "Escolha a especie do seu animal", Toast.LENGTH_SHORT).show();
+        else if (campoEspecie.getSelectedItemId() == 0){
+            Toast.makeText(this, "Escolha a ESPÉCIE  do seu animal", Toast.LENGTH_LONG).show();
         }
-        else if (campoGeneroString.equals("Escolha o genero")){
-            Toast.makeText(this, "Escolha um genero para seu animal", Toast.LENGTH_SHORT).show();
+        else if (campoSexo.getSelectedItemId() == 0){
+            Toast.makeText(this, "Escolha um GÊNERO  para seu animal", Toast.LENGTH_LONG).show();
         }else{
             finalizarFormulario();
         }
@@ -125,17 +123,16 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
         animal.setSexo(sexo);
         animal.setEspecie(especie);
         animal.setCastrado(castrado);
-
     }
 
     private void carregaAnimal() {
         Intent dados = getIntent();
         if (dados.hasExtra("Animal")){
             animal = (Animal) dados.getSerializableExtra("Animal");
-            setTitle(TITULO_APPBAR_EDITA_ALUNO + animal.getNome());
+            setTitle(tituloEditaAnimal + animal.getNome());
             preencherCampos();
         }else{
-            setTitle(TITULO_APPBAR_NOVO_ALUNO);
+            setTitle(tituloNovoAnimal);
             animal = new Animal();
         }
     }
@@ -171,9 +168,25 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
                     pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
                     Gambiarra = false;
                 }
-
+                else{
+                    Gambiarra = true;
+                }
             }
         });
+        campoDataNascimento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Gambiarra){
+                    DialogFragment pegaData = new PegaDataAdapter();
+                    pegaData.show(getSupportFragmentManager(), "calendarioDataVacina");
+                    Gambiarra = false;
+                }
+                else{
+                    Gambiarra = true;
+                }
+            }
+        });
+
     }
 
     private void configuraSpinnerEspecie() {
@@ -199,5 +212,6 @@ public class activityFormularioAnimais extends AppCompatActivity implements Date
         campoPeso.requestFocus();
         Gambiarra = true;
     }
+
 
 }

@@ -19,7 +19,7 @@ public class ListaNoticiasView {
     private void AdicionaNoticias() {
         adapter.adicionaNoticia(new Noticia("31","Outubro","2019","1ª Cãosciência da zona sul reuniu mais de 300 pessoas em Interlagos junto com seus pets de estimação\n","https://www.terra.com.br/noticias/dino/1-caosciencia-da-zona-sul-reuniu-mais-de-300-pessoas-em-interlagos-junto-com-seus-pets-de-estimacao,1c7e87f1b5d4de83d7b86d8e45dc3d5fvrxl7lj5.html","Terra"));
         adapter.adicionaNoticia(new Noticia("29","Outubro","2019","Casos de raiva animal são confirmados em Itaberá neste ano","https://g1.globo.com/sp/itapetininga-regiao/noticia/2019/10/29/casos-de-raiva-animal-sao-confirmados-em-itabera-neste-ano.ghtml","G1"));
-        adapter.adicionaNoticia(new Noticia("28","Outubro","2019","NO PRIMEIRO DIA DE VACINAÇÃO CONTRA RAIVA ANIMAL, JAGUARIÚNA IMUNIZA 20% DOS CÃES E 22% DOS GATOS","https://oregional.net/no-primeiro-dia-de-vacinacao-contra-raiva-animal-jaguariuna-imuniza-20-dos-caes-e-22-dos-gatos-100054","Regional"));
+        adapter.adicionaNoticia(new Noticia("28","Outubro","2019","No primeiro dia de vacinação contra raiva animal, Jaguariúna imuniza 20% dos Cães e 22% dos gatos","https://oregional.net/no-primeiro-dia-de-vacinacao-contra-raiva-animal-jaguariuna-imuniza-20-dos-caes-e-22-dos-gatos-100054","Regional"));
         adapter.adicionaNoticia(new Noticia("23","Outubro","2019","Por falta de vacinas, campanha antirrábica é encerrada em Manaus","https://g1.globo.com/am/amazonas/noticia/2019/10/23/por-falta-de-vacinas-campanha-antirrabica-e-encerrada-em-manaus.ghtml","G1"));
         adapter.adicionaNoticia(new Noticia("12","Outubro","2019","Vacinação antirrábica: Piracicaba abre 13 locais e espera imunizar 3,9 mil animais neste sábado","https://g1.globo.com/sp/piracicaba-regiao/noticia/2019/10/12/vacinacao-antirrabica-piracicaba-abre-13-locais-e-espera-imunizar-39-mil-animais-neste-sabado.ghtml","G1"));
         adapter.adicionaNoticia(new Noticia("02","Outubro","2019","Doses de vacina antirrábica recebidas foram insuficientes em Varginha, MG","https://g1.globo.com/mg/sul-de-minas/noticia/2019/10/02/doses-de-vacina-antirrabica-recebidas-foram-insuficiente-em-varginha-mg.ghtml","G1"));
@@ -36,6 +36,4 @@ public class ListaNoticiasView {
     public void configuraAdapter(ListView listaNoticias) {
         listaNoticias.setAdapter(adapter);
     }
-
-
 }

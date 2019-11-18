@@ -83,11 +83,12 @@ public class activityListaVacinasAnimal extends AppCompatActivity {
     private void iniciaActivity() {
         Intent dados = getIntent();
         animal = (Animal) dados.getSerializableExtra("Animal");
+        setTitle("Vacinas de " + animal.getNome());
     }
 
     private void abreFormNovaVacina(){
         Intent vaiPraListaDeVacinas = new Intent(activityListaVacinasAnimal.this, activityListaTodasVacinas.class);
-        vaiPraListaDeVacinas.putExtra("Animal", animal.getId());
+        vaiPraListaDeVacinas.putExtra("Animal", animal);
         startActivity(vaiPraListaDeVacinas);
     }
 

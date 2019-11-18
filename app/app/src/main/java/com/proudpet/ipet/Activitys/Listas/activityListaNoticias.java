@@ -18,7 +18,7 @@ public class activityListaNoticias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_noticias);
-        setTitle("Noticias (Em desenvolvimento)");
+        setTitle("Notícias");
         listaNoticiasView = new ListaNoticiasView(this);
         configuraLista();
     }
@@ -38,6 +38,4 @@ public class activityListaNoticias extends AppCompatActivity {
             startActivity(vaiPraNoticia);
         });
     }
-
-
 }

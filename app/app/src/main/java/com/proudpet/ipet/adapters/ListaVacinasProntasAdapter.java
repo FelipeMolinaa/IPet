@@ -56,7 +56,7 @@ public class ListaVacinasProntasAdapter extends BaseAdapter {
         ImageView campoFotoAnimal = viewCriada.findViewById(R.id.ItemVacindaDadosImgAnimalVacina);
 
         if(vacinaDevolvida.getAnimal() == 2){
-            campoFotoAnimal.setImageResource(R.mipmap.img_gato_emoji_foreground);
+             campoFotoAnimal.setImageResource(R.mipmap.img_gato_emoji_foreground);
         }
         if(vacinaDevolvida.getAnimal() == 1){
             campoFotoAnimal.setImageResource(R.mipmap.img_cachorro_emoji_foreground);

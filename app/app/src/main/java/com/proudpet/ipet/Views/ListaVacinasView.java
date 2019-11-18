@@ -24,7 +24,6 @@ public class ListaVacinasView {
                 .getRoomVacinaDAO();
     }
 
-
     public void configuraAdapter(ListView listaDeVacinas) {
         listaDeVacinas.setAdapter(adapter);
     }

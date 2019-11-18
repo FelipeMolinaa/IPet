@@ -3,20 +3,17 @@ package com.proudpet.ipet.Activitys.Infos;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-
 import com.proudpet.ipet.Activitys.Forms.activityFormularioAnimais;
 import com.proudpet.ipet.Activitys.Listas.activityListaVacinasAnimal;
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Animal;
-import com.proudpet.ipet.classes.Vacina;
 import com.proudpet.ipet.database.AnimaisDatabase;
 import com.proudpet.ipet.database.dao.AnimaisDAO;
 
@@ -30,19 +27,16 @@ public class activityInformacaoAnimal extends AppCompatActivity {
     TextView generoAnimal;
     TextView pesoAnimal;
     ImageView imagemAnimal;
-    Switch isCastrado;
+    ImageView Castrado;
     Button botaoVacinas;
     Button botaoEditar;
     Button botaoRemover;
-
     AlertDialog alertaExclusao;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacao_animal);
-
         PegaDados();
         PegaViews();
         ConfiguraBotoes();
@@ -72,7 +66,7 @@ public class activityInformacaoAnimal extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(activityInformacaoAnimal.this);
                 builder.setTitle("Remover");
-                builder.setMessage("tem certeza que deseja remover este Animal?");
+                builder.setMessage("Tem certeza que deseja remover este Animal?");
                 builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
                         dao.remove(animal);
@@ -85,10 +79,6 @@ public class activityInformacaoAnimal extends AppCompatActivity {
                 alertaExclusao.show();
             }
         });
-
-
-
-
     }
 
     private void PegaViews() {
@@ -97,7 +87,7 @@ public class activityInformacaoAnimal extends AppCompatActivity {
         generoAnimal = findViewById(R.id.TXTGenero);
         pesoAnimal = findViewById(R.id.TXTPesoAnimal);
         imagemAnimal = findViewById(R.id.IMGAnimal);
-        isCastrado = findViewById(R.id.SwitchCastrado);
+        Castrado = findViewById(R.id.SwitchCastrado);
         botaoVacinas = findViewById(R.id.BotaoVerVacinas);
         botaoEditar = findViewById(R.id.BotaoEditar);
         botaoRemover = findViewById(R.id.BotaoRemover);
@@ -120,9 +110,17 @@ public class activityInformacaoAnimal extends AppCompatActivity {
         dataNascimento.setText(animal.getDataNascimento());
         generoAnimal.setText(animal.getStringSexo());
         pesoAnimal.setText(animal.getPesoString());
+        setTitle("Informações de "+ animal.getNome());
         ConfiguraImagemAnimal();
-        isCastrado.setChecked(animal.isCastrado());
+        ConfiguraImagemCastrado();
+    }
 
+    private void ConfiguraImagemCastrado() {
+        if(animal.isCastrado()){
+            Castrado.setImageResource(R.drawable.icone_vacina_verde);
+        }else{
+            Castrado.setImageResource(R.drawable.icone_vacina_vermelho);
+        }
     }
 
     private void ConfiguraImagemAnimal() {

@@ -17,14 +17,21 @@ public class ListaVacinasProntasView {
     }
 
     private void AdicionaVacinasProntas() {
-       adapter.adicionaVacina(new VacinaPronta("V8", 1, 1));
-       adapter.adicionaVacina(new VacinaPronta("V10", 1, 1));
-       adapter.adicionaVacina(new VacinaPronta("AntRabica", 1, 1));
-       adapter.adicionaVacina(new VacinaPronta("AntRabica", 1, 2));
+        adapter.adicionaVacina(new VacinaPronta("V8", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("V10", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("V12", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("Antirrábica", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("Leishmaniose", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("Tosse dos canis", 1, 1));
+        adapter.adicionaVacina(new VacinaPronta("Contra giárdia", 1, 1));
+
+        adapter.adicionaVacina(new VacinaPronta("V3", 1, 2));
+        adapter.adicionaVacina(new VacinaPronta("V4", 1, 2));
+        adapter.adicionaVacina(new VacinaPronta("V5", 1, 2));
+        adapter.adicionaVacina(new VacinaPronta("Antirrábica", 1, 2));
     }
 
     public void configuraAdapter(ListView listaVacinasProntas){
         listaVacinasProntas.setAdapter(adapter);
     }
-
 }

@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:text="Genero:"
+        android:text="Gênero:"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -105,7 +105,7 @@
         app:layout_constraintStart_toEndOf="@+id/LabelGenero"
         app:layout_constraintTop_toTopOf="@+id/LabelGenero"
         app:layout_constraintVertical_bias="1.0"
-        tools:text="Femea" />
+        tools:text="Fêmea" />
 
     <TextView
         android:id="@+id/LabelCastrado"
@@ -119,16 +119,19 @@
         app:layout_constraintTop_toTopOf="@+id/TXTGenero"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Switch
+    <ImageView
         android:id="@+id/SwitchCastrado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
         android:enabled="false"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/LabelCastrado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/LabelCastrado"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.51"
+        tools:src="@drawable/icone_vacina_verde" />
 
     <View
         android:id="@+id/divisor3"

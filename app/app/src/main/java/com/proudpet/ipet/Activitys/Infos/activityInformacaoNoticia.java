@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-
 import com.proudpet.ipet.R;
 import com.proudpet.ipet.classes.Noticia;
 
@@ -23,7 +22,7 @@ public class activityInformacaoNoticia extends AppCompatActivity {
             myWebView = (WebView) findViewById(R.id.webView);
             myWebView.loadUrl(noticia.getLink() );
 
-            setTitle(noticia.getFonte());
+            setTitle("Portal: "+noticia.getFonte());
 
             WebSettings webSettings = myWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
@@ -36,8 +35,5 @@ public class activityInformacaoNoticia extends AppCompatActivity {
             WebSettings webSettings = myWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
         }
-
-
-
     }
 }

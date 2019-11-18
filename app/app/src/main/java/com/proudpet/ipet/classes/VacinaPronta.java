@@ -48,6 +48,6 @@ public class VacinaPronta implements Serializable {
     }
 
     public String getStringValidade() {
-        return getValidade() + "Ano"; //nescessario revisao
+        return getValidade() + " Ano"; //nescessario revisao
     }
 }

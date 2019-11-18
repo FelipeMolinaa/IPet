@@ -17,7 +17,6 @@ public class PegaDataAdapter extends DialogFragment {
         int ano = calendario.get(Calendar.YEAR);
         int mes = calendario.get(Calendar.MONTH);
         int dia = calendario.get(Calendar.DAY_OF_MONTH);
-
         return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), ano, mes, dia);
     }
 }
